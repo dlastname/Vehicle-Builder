@@ -16,8 +16,8 @@ class Truck extends Vehicle implements AbleToTow {
   year: number;
   weight: number;
   topSpeed: number;
-  wheels: Wheel[];
   towingCapacity: number;
+  wheels: Wheel[];
 
   // x TODO: The types should be as follows: vin (string), color (string), make (string), model (string), year (number), weight (number), topSpeed (number), wheels (Wheel[]), towingCapacity (number)
 
@@ -30,8 +30,8 @@ class Truck extends Vehicle implements AbleToTow {
     year: number,
     weight: number,
     topSpeed: number,
-    wheels: Wheel[],
-    towingCapacity: number
+    towingCapacity: number,
+    wheels: Wheel[]
   ) {
     // x TODO: The constructor should call the constructor of the parent class, Vehicle
     super();
