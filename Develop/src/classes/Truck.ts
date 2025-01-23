@@ -56,15 +56,15 @@ class Truck extends Vehicle implements AbleToTow {
   // x TODO: Implement the tow method from the AbleToTow interface
   tow(vehicle: Truck | Motorbike | Car): void {
     // x TODO: Get the make and model of the vehicle if it exists
-    if (this.make && this.model) {
+    if (vehicle.make && vehicle.model) {
       // x TODO: Check if the vehicle's weight is less than or equal to the truck's towing capacity
-      if (this.weight <= this.towingCapacity) {
+      if (vehicle.weight <= this.towingCapacity) {
         // x TODO: If it is, log that the vehicle is being towed
-        console.log(`Your ${this.make} ${this.model} is being towed!`);
+        console.log(`Your ${vehicle.make} ${vehicle.model} is being towed!`);
       } else {
         // x TODO: If it is not, log that the vehicle is too heavy to be towed
         console.log(
-          `Your ${this.make} ${this.model} is too heavy to be towed!`
+          `Your ${vehicle.make} ${vehicle.model} is too heavy to be towed!`
         );
       }
     }
@@ -85,7 +85,20 @@ class Truck extends Vehicle implements AbleToTow {
     console.log(`Top Speed: ${this.topSpeed} mph`);
     console.log(`Color: ${this.color}`);
     console.log(`Towing Capacity: ${this.towingCapacity}`);
-    console.log(`Wheels: ${this.wheels}`);
+    // console.log(`Wheels: ${this.wheels}`);
+
+    console.log(
+      `Wheel 1: ${this.wheels[0].getDiameter} inch with a ${this.wheels[0].getTireBrand} tire`
+    );
+    console.log(
+      `Wheel 2: ${this.wheels[1].getDiameter} inch with a ${this.wheels[1].getTireBrand} tire`
+    );
+    console.log(
+      `Wheel 3: ${this.wheels[2].getDiameter} inch with a ${this.wheels[2].getTireBrand} tire`
+    );
+    console.log(
+      `Wheel 4: ${this.wheels[3].getDiameter} inch with a ${this.wheels[3].getTireBrand} tire`
+    );
   }
 }
 
