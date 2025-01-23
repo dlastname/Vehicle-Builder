@@ -310,9 +310,17 @@ class Cli {
         },
       ])
       .then((answers) => {
-        // TODO: check if the selected vehicle is the truck
-        // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
-        // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
+        
+        // ? TODO: check if the selected vehicle is the truck
+        if ( answers.vehicleToTow.vin === truck.vin) {
+          // x TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
+          console.log(`You cannot tow yourself!`);
+          this.performActions();          
+        } else {
+          // TODO: if it is not, tow the selected vehicle then perform actions on the truck to allow the user to select another action
+          truck.tow(answers.vehicleToTow);
+          this.performActions();
+        }
       });
   }
 
@@ -324,8 +332,10 @@ class Cli {
           type: "list",
           name: "action",
           message: "Select an action",
-          // TODO: add options to tow and wheelie
+          // x TODO: add options to tow and wheelie
           choices: [
+            "Tow",
+            "Wheelie",
             "Print details",
             "Start vehicle",
             "Accelerate 5 MPH",
@@ -397,10 +407,30 @@ class Cli {
               this.vehicles[i].reverse();
             }
           }
-        }
-        // TODO: add statements to perform the tow action only if the selected vehicle is a truck. Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
-        // TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike
-        else if (answers.action === "Select or create another vehicle") {
+        } else if (answers.action === "Tow") {
+          // x TODO: add statements to perform the tow action only if the selected vehicle is a truck. Call the findVehicleToTow method to find a vehicle to tow and pass the selected truck as an argument. After calling the findVehicleToTow method, you will need to return to avoid instantly calling the performActions method again since findVehicleToTow is asynchronous.
+          const selectedVehicle = this.vehicles.find(
+            (vehicle) => vehicle.vin === this.selectedVehicleVin
+          );
+        
+          if (selectedVehicle instanceof Truck) {
+            this.findVehicleToTow(selectedVehicle);
+            return;
+          } else {
+            console.log("Only trucks can tow vehicles.");
+          }
+        } else if (answers.action === "Wheelie") {
+          // x TODO: add statements to perform the wheelie action only if the selected vehicle is a motorbike
+          const selectedVehicle = this.vehicles.find(
+            (vehicle) => vehicle.vin === this.selectedVehicleVin
+          );
+
+          if (selectedVehicle instanceof Motorbike) {
+            selectedVehicle.wheelie();
+          } else {
+            console.log("Only motorbikes can perform a wheelie.");
+          }
+        } else if (answers.action === "Select or create another vehicle") {
           // start the cli to return to the initial prompt if the user wants to select or create another vehicle
           this.startCli();
           return;
