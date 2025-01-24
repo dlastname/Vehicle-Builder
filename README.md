@@ -2,11 +2,11 @@
 
 ## Description
 
+LINK TO RECORDING CAN BE FOUND IN [USAGE](#usage)
+
 The Vehicle Builder is a command-line application that allows users to create new vehicles or select existing ones. Once a vehicle is chosen, users can perform various actions with it. The application is built using Node.js and Inquirer, demonstrating how to work with an existing codebase and expand functionality by adding new vehicle types.
 
 ## Table of Contents
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
 
 - [Installation](#installation)
 - [Usage](#usage)
@@ -23,9 +23,11 @@ Run "npm i" to install the required npm modules.
 
 Use the terminal to run: "npm run start". A script will take it from there
 
+[CLICK HERE FOR A VIDEO WALKTHROUGH TO SHOW USAGE](https://drive.google.com/file/d/1Jhy9LxlTCHjOGFRlvNSCofAxXrfjR2SY/view?usp=sharing)
+
 ## License
 
-
+None
 
 ## Contributing
 
